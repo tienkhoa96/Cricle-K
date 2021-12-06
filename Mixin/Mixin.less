@@ -1,0 +1,230 @@
+@import "../Variables/Variables.less";
+// =================== Mixins =============================================
+.flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.box-shadow-slip{ 
+    box-shadow: 0 0 5px 5px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 0 5px  5px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0 0 5px 5px rgba(0,0,0,0.1);
+    -o-box-shadow: 0 0 5px 5px rgba(0,0,0,0.1);
+}
+
+//
+// Inputs
+// -------------------------------------------------
+
+.input(@color, @bg, @border-color){
+    color: @color;
+    padding-left: @input-primary-padding;
+    background: @bg;
+    line-height: @input-line-height;
+    border: 1px solid @border-color;
+    border-radius: 20px;
+}
+
+// Input Primary
+.input-primary{
+    .input(@input-primary-color, @input-primary-background, @input-primary-border-color);
+}
+
+//
+//  Buttons
+//  ---------------------------------------------
+ 
+.button(@color, @bg, @hover-color, @hover-bg) {
+    font-size: 14px;
+    display: inline-block;
+    border-radius: 20px;  
+    text-transform: uppercase;
+    font-weight: @font-weight-semibold;
+    line-height: @btn-line-height;
+    border: 1px solid @color-primary;
+    padding: @btn-padding;
+    background: @bg;
+    color: @color;
+    &:hover{
+        background: @hover-bg;
+        color: @hover-color;
+    }
+    i{
+        color: @color;
+    }
+}
+
+// Button-primary
+.btn-primary{
+    .button(@btn-primary-hover-color, @btn-primary-hover-background, @btn-primary-color, @btn-primary-background);
+}
+
+// Button-primary
+.btn-primary-reverse{
+    .button(@btn-primary-color, @btn-primary-background, @btn-primary-hover-color, @btn-primary-hover-background);
+}
+
+// Button-secondary
+.btn-secondary{
+    .button(@btn-secondary-color, @btn-secondary-background, @btn-secondary-hover-color, @btn-secondary-hover-background);
+}
+
+
+// 
+// Grid
+// -------------------------------------------------------------------
+
+.grid(@num-col, @space-row,@space-col){
+    display: grid;
+    align-items: center;
+    text-align: center;
+    grid-template-columns: repeat(@num-col, 1fr);
+    grid-gap: @space-row @space-col;
+}
+
+//
+// Labels slip
+// -------------------------------------------------------------------
+
+.label-slip(@fw, @bg, @color){
+    font-size: @font-size-small;
+    width: 30px;
+    .flex();
+    position: absolute;
+    right: 0;
+    top: 0;
+    text-transform: uppercase;
+    justify-content: center;
+    height: 30px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    font-weight: @fw;
+    background: @bg;
+    border: 1px solid @color-primary;
+    color: @color;
+}
+
+
+// Label primary
+
+.label-primary{
+    .label-slip(@font-weight-bold, @color-primary, @color-white)
+}
+
+// Label primary reverse 
+
+.label-primary-reverse{
+    .label-slip(@font-weight-bold, @color-white, @color-primary)
+} 
+
+//
+// Labels
+// -------------------------------------------------------------------
+
+.label-width(@fw, @bg, @color){
+    font-size: @font-size-small;
+    // width: 30px;
+    padding: 9px 17.5px; 
+    .flex(); 
+    position: absolute;
+    right: 0;
+    top: 0;
+    text-transform: uppercase;
+    justify-content: center;
+    height: 30px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    font-weight: @fw;
+    background: @bg;
+    border: 1px solid @bg;
+    color: @color;
+}
+
+// Label secondary
+
+.label-secondary{
+    .label-width(@font-weight-semibold, @color-secondary, @color-white)
+}
+
+//
+// Category-slip
+// ---------------------------------------------------------------------
+
+.icon-category{
+    width: 60px;
+    height: 60px;
+    background: @color-white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    .box-shadow-slip(); 
+}
+
+//
+// Chat Slip
+// ----------------------------------------------------------
+
+.contact-icon(@url){
+    // margin-bottom: 15px;
+    width: 40px;
+    height: 40px;
+    background: @color-secondary;
+    background-image: @url;
+    background-position: center, center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    .box-shadow-slip();
+}
+
+// Chat Phone 
+// -----------------------------------------------------------------------
+
+.contact-phone{
+    .contact-icon(@phone-chat);
+}
+
+// Chat Mes
+// -----------------------------------------------------------------------
+
+.contact-mes{     
+    .contact-icon(@mes-chat);
+}
+
+//
+// Social slip
+// -------------------------------------------------------------------------
+
+.social-icon(@url){ 
+    width: 35px;
+    height: 35px;
+    background: @color-secondary;
+    background-image: @url;
+    background-position: center, center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+}
+
+// Facebook
+// ------------------------------------------------------------
+ 
+.facebook-icon{   
+    .social-icon(@social-facebook);
+}
+
+// Youtube
+// ----------------------------------------------------------------
+
+.youtube-icon{
+    .social-icon(@social-youtube);
+}
+
+// Gmail
+// ----------------------------------------------------------------
+
+.gmail-icon{ 
+    .social-icon(@social-gmail);
+}
+
+    
